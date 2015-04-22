@@ -52,7 +52,7 @@ By default, retina files specified by the `retinaPrefix` option will not be adde
 <tr>
 <td>assetsDir</td>
 <td>Top directory that will be specified in the manifest file</td>
-<td>assets/</td>
+<td>"assets/"</td>
 </tr>
 
 <tr>
