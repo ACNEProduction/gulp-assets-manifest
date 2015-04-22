@@ -27,8 +27,8 @@ gulp.task('assets_manifest', function() {
 		.pipe(gulp.dest('./dist/'));
 });
 
-// only retina assets:
-gulp.task('assets_retina_manifest', function() {
+// only retina assets
+gulp.task('retina_assets_manifest', function() {
 	return gulp.src('./src/assets/images/**/*')
 		.pipe(assetsManifest('retina_assets.json', { retina: true, retinaPrefix: '_2x' }))
 		.pipe(gulp.dest('./dist/'));
@@ -36,11 +36,11 @@ gulp.task('assets_retina_manifest', function() {
 
 ```
 
-This will take all (non-retina) filenames and output a assets JSON manifest file that [PreloadJS](https://github.com/CreateJS/PreloadJS) can parse.
+This will take all (non-retina) filenames and output a assets manifest file that [PreloadJS](https://github.com/CreateJS/PreloadJS) can parse.
 
 Files will be added to the assets file in the order that they are specified in the `gulp.src` function.
 
-By default, retina files specified by the `retinaPrefix` will not be added.
+By default, retina files specified by the `retinaPrefix` option will not be added.
 
 ## Options
 
@@ -50,21 +50,21 @@ By default, retina files specified by the `retinaPrefix` will not be added.
 </tr>
 
 <tr>
-<td>`assetsDir`</td>
+<td>assetsDir</td>
 <td>Top directory that will be specified in the manifest file</td>
-<td>`assets/`</td>
+<td>assets/</td>
 </tr>
 
 <tr>
-<td>`retina`</td>
-<td>Only process files with the `retinaPrefix` option in their filename. default is to skip them.</td>
-<td>`false`</td>
+<td>retina</td>
+<td>Only process files with the retinaPrefix option in their filename. Default is to skip them.</td>
+<td>false</td>
 </tr>
 
 <tr>
-<td>`retinaPrefix`</td>
+<td>retinaPrefix</td>
 <td>Retina prefix used in filenames that are retina assets</td>
-<td>`_2x`</td>
+<td>"_2x"</td>
 </tr>
 
 </table>
@@ -74,7 +74,7 @@ By default, retina files specified by the `retinaPrefix` will not be added.
 
 (MIT License)
 
-Copyright (c) 2014 [Acne](http://www.acne.se) zyk@acne.se
+Copyright (c) 2015 [Acne](http://www.acne.se) zyk@acne.se
 
 Rewritten [gulp-concat](https://www.npmjs.com/package/gulp-concat) made by Fractal:
 
