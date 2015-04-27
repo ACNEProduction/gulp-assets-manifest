@@ -18,6 +18,11 @@ module.exports = function(file, options) {
 	options = options || {};
 
 	var assetsDir = options.assetsDir || 'assets/';
+
+	if (process.platform === 'win32') {
+		assetsDir = assetsDir.replace('/', path.sep);
+	}
+
 	var retina = options.retina || false;
 	var retinaPrefix = options.retinaPrefix || '_2x';
 
