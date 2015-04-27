@@ -1,7 +1,7 @@
 {
   "name": "gulp-assets-manifest",
   "description": "Generate manifest files for image assets loading using PreloadJS",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "acneproduction/gulp-assets-manifest",
   "author": "William 'zyk' Ekholm <zyk@acne.se> (http://www.acne.se/)",
   "files": [
