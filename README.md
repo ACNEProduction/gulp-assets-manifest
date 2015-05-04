@@ -22,14 +22,12 @@ var assetsManifest = require('gulp-assets-manifest');
 
 // non-retina assets
 gulp.task('assets_manifest', function() {
-	return gulp.src('./src/assets/images/**/*')
+	gulp.src('./src/assets/images/**/*')
 		.pipe(assetsManifest('assets.json'))
 		.pipe(gulp.dest('./dist/'));
-});
 
-// only retina assets
-gulp.task('retina_assets_manifest', function() {
-	return gulp.src('./src/assets/images/**/*')
+	// retina
+	gulp.src('./src/assets/images/**/*')
 		.pipe(assetsManifest('retina_assets.json', { retina: true, retinaPrefix: '_2x' }))
 		.pipe(gulp.dest('./dist/'));
 });
@@ -57,7 +55,7 @@ By default, retina files specified by the `retinaPrefix` option will not be adde
 
 <tr>
 <td>retina</td>
-<td>Only process files with the retinaPrefix option in their filename. Default is to skip them.</td>
+<td>Only process files with retinaPrefix in their filename. Default is to skip them.</td>
 <td>false</td>
 </tr>
 
@@ -65,6 +63,12 @@ By default, retina files specified by the `retinaPrefix` option will not be adde
 <td>retinaPrefix</td>
 <td>Retina prefix used in filenames that are retina assets</td>
 <td>"_2x"</td>
+</tr>
+
+<tr>
+<td>pathSeparator</td>
+<td>Set directory path separator. Useful when running windows but deploying on servers</td>
+<td>OS specific (path.sep)</td>
 </tr>
 
 </table>
