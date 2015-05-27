@@ -19,17 +19,20 @@
 
 ```js
 var assetsManifest = require('gulp-assets-manifest');
+var merge = require('merge-stream');
 
-// non-retina assets
 gulp.task('assets_manifest', function() {
-	gulp.src('./src/assets/images/**/*')
+	// normal assets
+	var assets = gulp.src('./src/assets/images/**/*')
 		.pipe(assetsManifest('assets.json'))
 		.pipe(gulp.dest('./dist/'));
 
-	// retina
-	gulp.src('./src/assets/images/**/*')
+	// retina assets
+	var retinaAssets = gulp.src('./src/assets/images/**/*')
 		.pipe(assetsManifest('retina_assets.json', { retina: true, retinaPrefix: '_2x' }))
 		.pipe(gulp.dest('./dist/'));
+
+	return merge(assets, retinaAssets);
 });
 
 ```
